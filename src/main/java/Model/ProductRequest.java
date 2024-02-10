@@ -10,6 +10,8 @@ public class ProductRequest {
 
     private Integer quantity;
 
+    public Long catId;
+
 
     public String getTitle() {
         return title;
@@ -44,4 +46,11 @@ public class ProductRequest {
     }
 
 
+    public Long getCatId() {
+        return catId;
+    }
+
+    public void setCatId(Long catId) {
+        this.catId = catId;
+    }
 }

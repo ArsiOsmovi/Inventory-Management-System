@@ -1,15 +1,24 @@
 package dao;
 
 import Entity.Product;
-import com.mysql.cj.Session;
+import Utils.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 public class ProductDao {
 
-//    Session session;
-//
-//    private Product createProduct(Product product){
-//
-//        Product product1 = session.save (product);
-//        return product;
-//    }
+    private final SessionFactory sessionFactory;
+
+    public ProductDao() {
+        sessionFactory = HibernateUtil.getSessionFactory();
+    }
+    public void createProduct(Product product){
+
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.save(product);
+            transaction.commit();
+        }
+    }
 }

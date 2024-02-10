@@ -2,14 +2,19 @@ package Service;
 
 
 import Converter.ProductConverter;
+import Entity.Product;
+import Model.ProductRequest;
 import dao.ProductDao;
 
 public class ProductService {
-//    public ProductModel createProduct(ProductModel productModel){
-//        ProductEntity entity = ProductConverter.convertToEntity();
-//
-//        ProductDao productDao = new ProductDao();
-//        productDao.createProduct(product);
-//
-//    }
+    ProductDao productDao = new ProductDao();
+    public Product createProduct(ProductRequest request){
+        Product entity = ProductConverter.convertToEntity(request);
+
+
+        productDao.createProduct(entity);
+
+        return entity;
+
+    }
 }

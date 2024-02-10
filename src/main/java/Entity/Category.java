@@ -27,6 +27,10 @@ public class Category {
         this.id = id;
     }
 
+    public Category() {
+
+    }
+
     public Long getId() {
         return id;
     }
